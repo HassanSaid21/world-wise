@@ -3,19 +3,27 @@
   padding: 2.5rem 5rem;
   background-color: var(--color-dark--1);
   min-height: calc(100vh - 5rem);
+
 }
 
 .product section {
-  width: clamp(80rem, 80%, 90rem);
+  width: 80%;
   margin: 6rem auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7rem;
+  display: flex;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+  gap: 4rem;
   align-items: center;
 }
 
-.product img {
-  width: 100%;
+.product section img {
+  width: 30rem;
+  height: 35rem;
+}
+
+.product div {
+  width: 65%;
+
 }
 
 .product h2 {

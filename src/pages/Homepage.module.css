@@ -1,10 +1,7 @@
 .homepage {
   height: calc(100vh - 5rem);
   margin: 2.2rem;
-  background-image: linear-gradient(
-      rgba(5, 6, 6, 0.7),
-      rgba(20, 22, 23, 0.7)
-    ),
+  background-image: linear-gradient(rgba(5, 6, 6, 0.7), rgba(20, 22, 23, 0.7)),
     url("../bg.jpg");
   background-size: cover;
   background-position: center;
