@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
-import { useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import styles from "./City.module.css";
+import { useCities } from "../../contexts/CitiesContext";
+import Button from "./Button";
+import { useEffect } from "react";
+
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -10,19 +14,31 @@ const formatDate = (date) =>
     weekday: "long",
   }).format(new Date(date));
 
-function City({cities}) {
+function City() {
+  const { getCity,  currentCity,  } = useCities();
+  const { id } = useParams();
 
-  const  {id} = useParams()
+   useEffect(() =>  function () {
+    getCity(id);
+   }
+   , [id]);
+  
+
+  function handleBack() {
+    //-useNavigate(-1)
+  }
 
   // TEMP DATA
-  const currentCity = {
+  /*  const currentCity = {
     cityName: "Lisbon",
     emoji: "🇵🇹",
     date: "2027-10-31T15:59:59.138Z",
     notes: "My favorite city so far!",
   };
+*/
+console.log(currentCity)
+  const { cityName, emoji, date, notes } = currentCity;
 
-  const { cityName, emoji, date, notes } = cities.filter((city) => city.id ===id)[0];
 
   return (
     <div className={styles.city}>
@@ -57,7 +73,9 @@ function City({cities}) {
       </div>
 
       <div>
-        
+        <Button onClick={handleBack} type={"back"}>
+          Back
+        </Button>
       </div>
     </div>
   );

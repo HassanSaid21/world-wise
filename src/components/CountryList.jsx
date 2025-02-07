@@ -6,8 +6,11 @@ import Spinner from "./Spinner";
 import Message from "./Message";
 
 import styles from "./CountryList.module.css";
+import { useCities } from "../../contexts/CitiesContext";
 // eslint-disable-next-line react/prop-types
-function CountryList({ cities, isLoading }) {
+function CountryList() {
+
+  const { cities, isLoading } = useCities()
   if (isLoading) return <Spinner />;
 
   if (cities.length == 0)
@@ -16,18 +19,19 @@ function CountryList({ cities, isLoading }) {
   const countries = cities.reduce(
     (arr, city) => {
       if (!arr.map((el) => el.country).includes(city.country))
-        return [...arr, { country: city.country, emoji: city.emoji }];
+        return [...arr, { country: city.country, emoji: city.emoji , id :city.id }];
       else return arr;
     },
 
     []
   );
+
   
 
   return (
     <ul className={styles.countryList}>
       {countries.map((country) => (
-        <CountryItem country={country} key={country}/>
+        <CountryItem country={country} key={country.id}/>
       ))}
     </ul>
   );
