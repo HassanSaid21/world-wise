@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
 import { useCities } from "../../contexts/CitiesContext";
-import Button from "./Button";
-import { useEffect } from "react";
 
+import { useEffect } from "react";
+import Spinner from "./Spinner";
+import BackButton from "./BackButton";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -15,18 +16,18 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function City() {
-  const { getCity,  currentCity,  } = useCities();
+  const { getCity, currentCity, isLoading } = useCities();
   const { id } = useParams();
 
-   useEffect(() =>  function () {
-    getCity(id);
-   }
-   , [id]);
-  
+  useEffect(
+    () =>
+      function () {
+        getCity(id);
+      },
+    [id]
+  );
 
-  function handleBack() {
-    //-useNavigate(-1)
-  }
+  if (isLoading) return <Spinner />;
 
   // TEMP DATA
   /*  const currentCity = {
@@ -36,9 +37,8 @@ function City() {
     notes: "My favorite city so far!",
   };
 */
-console.log(currentCity)
-  const { cityName, emoji, date, notes } = currentCity;
 
+  const { cityName, emoji, date, notes } = currentCity;
 
   return (
     <div className={styles.city}>
@@ -73,9 +73,7 @@ console.log(currentCity)
       </div>
 
       <div>
-        <Button onClick={handleBack} type={"back"}>
-          Back
-        </Button>
+        <BackButton />
       </div>
     </div>
   );
