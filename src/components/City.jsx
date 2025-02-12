@@ -38,14 +38,15 @@ function City() {
   };
 */
 
-  const { cityName, emoji, date, notes } = currentCity;
+  const { cityName, emoji, date, notes , country} = currentCity;
 
   return (
     <div className={styles.city}>
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{emoji}</span> {cityName}
+        <img className={styles.emoji} src={emoji} alt={country} width="035"
+                height="30"/>  {cityName}
         </h3>
       </div>
 

@@ -10,7 +10,7 @@ const formatDate = (date) =>
     year: "numeric",
   }).format(new Date(date));
 function CityItem({ city }) {
-  const { cityName, emoji, date, id, position } = city;
+  const { cityName, emoji, date, id, position ,country} = city;
   const{ currentCity} =useCities()
   return (
     <li>
@@ -18,7 +18,8 @@ function CityItem({ city }) {
         className={`${styles.cityItem}   ${ currentCity.id===id  ?styles['cityItem--active'] :""}`}
         to={`${id}?lat=${position.lat}&lng=${position.lng}`}
       >
-        <span className={styles.emoji}> {emoji}</span>
+        <img className={styles.emoji} src={emoji} alt={country} width="025"
+        height="20"/>
         <h3 className={styles.name}> {cityName}</h3>
         <time className={styles.date}>{formatDate(date)}</time>
 
