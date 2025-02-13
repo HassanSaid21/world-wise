@@ -8,7 +8,7 @@ function BackButton() {
     <div>
       <Button onClick={(e) => { 
           e.preventDefault()
-          navigate(-1)
+          navigate('/app')
          }} type={"back"}>
         ⬅ Back
         </Button>
