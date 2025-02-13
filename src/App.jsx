@@ -17,7 +17,7 @@ import HomePage from "./pages/Homepage";
 function App() {
   return (
     <CitiesProvider>
-      <BrowserRouter>
+      <BrowserRouter   future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="product" element={<Product />} />

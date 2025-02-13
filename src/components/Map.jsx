@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Map.module.css";
 import {
   MapContainer,
@@ -13,28 +13,29 @@ import { useCities } from "../../contexts/CitiesContext";
 import { useEffect, useState } from "react";
 import Button from "./Button";
 import useGeolocation from "../../hooks/useGeolocation";
+import { useUrlPosition } from "../../hooks/useUrl";
 
 function Map() {
   const { cities } = useCities();
-  const [searchParams] = useSearchParams();
+  const [lat, lng] = useUrlPosition()
   const {
     isLoading: isLoadingPosition,
     getPosition,
     position: geolocationPosition,
   } = useGeolocation();
   const [position, setPosition] = useState([40, 0]);
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+
   useEffect(
     function () {
-      if (lat && lng) setPosition([lat, lng]);
+      if (lat != null && lng != null) setPosition([lat, lng]);
     },
     [lat, lng]
   );
   useEffect(
     function () {
-      if (geolocationPosition)
+      if (geolocationPosition?.lat && geolocationPosition?.lng)
         setPosition([geolocationPosition.lat, geolocationPosition.lng]);
+      
     },
     [geolocationPosition]
   );
@@ -71,16 +72,18 @@ function Map() {
     </div>
   );
 }
-// his component is used to change the center of the map programmatically based on user interaction when he click on one of the cities then the center changes to be the location of that city
+// this component is used to change the center of the map programmatically based on user interaction when he click on one of the cities then the center changes to be the location of that city
 function ChangeCenter({ position }) {
   const map = useMap();
-  map.setView(position);
+  useEffect(() => {
+    map.setView(position);
+  }, [position, map]); // updates only when `position` changes
   return null;
 }
 function MapClickHandler() {
   const navigate = useNavigate();
   useMapEvents({
-    click: (e) => navigate(`form/?lat=${e.latlng.lat}&lng=${e.latlng.lat}`), // redirect to form component
+    click: (e) => navigate(`form/?lat=${e.latlng.lat}&lng=${e.latlng.lng}`), // redirect to form component
   });
 
   return null;
