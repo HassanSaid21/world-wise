@@ -11,10 +11,17 @@ import {
 
 import { useCities } from "../../contexts/CitiesContext";
 import { useEffect, useState } from "react";
+import Button from "./Button";
+import useGeolocation from "../../hooks/useGeolocation";
 
 function Map() {
   const { cities } = useCities();
   const [searchParams] = useSearchParams();
+  const {
+    isLoading: isLoadingPosition,
+    getPosition,
+    position: geolocationPosition,
+  } = useGeolocation();
   const [position, setPosition] = useState([40, 0]);
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
@@ -24,9 +31,21 @@ function Map() {
     },
     [lat, lng]
   );
+  useEffect(
+    function () {
+      if (geolocationPosition)
+        setPosition([geolocationPosition.lat, geolocationPosition.lng]);
+    },
+    [geolocationPosition]
+  );
 
   return (
     <div className={styles.mapContainer}>
+      {!geolocationPosition && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? "...Loading" : "use your location"}
+        </Button>
+      )}
       <MapContainer
         center={position}
         zoom={13}
@@ -61,8 +80,7 @@ function ChangeCenter({ position }) {
 function MapClickHandler() {
   const navigate = useNavigate();
   useMapEvents({
-    click: (e) =>
-      navigate(`form/?lat=${e.latlng.lat}&lng=${e.latlng.lat}`), // redirect to form component
+    click: (e) => navigate(`form/?lat=${e.latlng.lat}&lng=${e.latlng.lat}`), // redirect to form component
   });
 
   return null;
