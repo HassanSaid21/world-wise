@@ -37,42 +37,6 @@
         "lng": 13.376933665713324
       },
       "id": "98443197"
-    },
-    {
-      "id": "9446",
-      "cityName": "Getafe",
-      "countryName": "Spain",
-      "startDate": "2025-02-13T23:33:47.575Z",
-      "notes": "good",
-      "emoji": "https://flagcdn.com/w320/es.png",
-      "position": {
-        "lat": "40.296164821774376",
-        "lng": "-3.600232975025615"
-      }
-    },
-    {
-      "id": "e3d9",
-      "cityName": "Paris",
-      "countryName": "France",
-      "date": "2025-02-14T14:10:16.326Z",
-      "notes": "not good",
-      "emoji": "https://flagcdn.com/w320/fr.png",
-      "position": {
-        "lat": "48.848596495568415",
-        "lng": "2.3620605468750004"
-      }
-    },
-    {
-      "id": "9407",
-      "cityName": "Rome",
-      "countryName": "Italy",
-      "date": "2025-02-14T14:23:16.778Z",
-      "notes": "good ",
-      "emoji": "https://flagcdn.com/w320/it.png",
-      "position": {
-        "lat": "41.83827210955729",
-        "lng": "12.579345703125002"
-      }
     }
   ]
 }
