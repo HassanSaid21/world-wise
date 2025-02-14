@@ -9,29 +9,30 @@ import styles from "./CountryList.module.css";
 import { useCities } from "../../contexts/CitiesContext";
 // eslint-disable-next-line react/prop-types
 function CountryList() {
-
-  const { cities, isLoading } = useCities()
+  const { cities, isLoading } = useCities();
   if (isLoading) return <Spinner />;
 
-  if (cities.length == 0)
+  if (cities.length === 0)
     return <Message message="Add your first message by clicking on the map" />;
-  
-  const countries = cities.reduce(
-    (arr, city) => {
-      if (!arr.map((el) => el.country).includes(city.country))
-        return [...arr, { country: city.country, emoji: city.emoji , id :city.id }];
-      else return arr;
-    },
 
-    []
-  );
+  const countryMap = new Map();
 
-  
+cities.forEach((city) => {
+  if (!countryMap.has(city.countryName)) {
+    countryMap.set(city.countryName, {
+      country: city.countryName,
+      emoji: city.emoji,
+      id: city.id,
+    });
+  }
+});
+
+const countries = Array.from(countryMap.values());
 
   return (
     <ul className={styles.countryList}>
       {countries.map((country) => (
-        <CountryItem country={country} key={country.id}/>
+        <CountryItem country={country} key={country.id} />
       ))}
     </ul>
   );

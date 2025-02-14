@@ -2,34 +2,33 @@
   "cities": [
     {
       "cityName": "Lisbon",
-      "country": "Portugal",
+      "countryName": "Portugal",
       "code": "PT",
-      "emoji":  "https://flagcdn.com/w320/pt.png",
+      "emoji": "https://flagcdn.com/w320/pt.png",
       "date": "2027-10-31T15:59:59.138Z",
       "notes": "My favorite city so far!",
       "position": {
         "lat": 38.727881642324164,
         "lng": -9.140900099907554
       },
-      "id": 73930385
+      "id": "73930385"
     },
     {
       "cityName": "Madrid",
-      "country": "Spain",
+      "countryName": "Spain",
       "code": "DE",
-    "emoji": "https://flagcdn.com/w320/es.png",
-      
+      "emoji": "https://flagcdn.com/w320/es.png",
       "date": "2027-07-15T08:22:53.976Z",
       "notes": "this is the most beautiful one ",
       "position": {
         "lat": 40.46635901755316,
         "lng": -3.7133789062500004
       },
-      "id": 17806751
+      "id": "17806751"
     },
     {
       "cityName": "Berlin",
-      "country": "Germany",
+      "countryName": "Germany",
       "emoji": "https://flagcdn.com/w320/de.png",
       "date": "2027-02-12T09:24:11.863Z",
       "notes": "Amazing 😃",
@@ -37,8 +36,43 @@
         "lat": 52.53586782505711,
         "lng": 13.376933665713324
       },
-      "id": 98443197
+      "id": "98443197"
+    },
+    {
+      "id": "9446",
+      "cityName": "Getafe",
+      "countryName": "Spain",
+      "startDate": "2025-02-13T23:33:47.575Z",
+      "notes": "good",
+      "emoji": "https://flagcdn.com/w320/es.png",
+      "position": {
+        "lat": "40.296164821774376",
+        "lng": "-3.600232975025615"
+      }
+    },
+    {
+      "id": "e3d9",
+      "cityName": "Paris",
+      "countryName": "France",
+      "date": "2025-02-14T14:10:16.326Z",
+      "notes": "not good",
+      "emoji": "https://flagcdn.com/w320/fr.png",
+      "position": {
+        "lat": "48.848596495568415",
+        "lng": "2.3620605468750004"
+      }
+    },
+    {
+      "id": "9407",
+      "cityName": "Rome",
+      "countryName": "Italy",
+      "date": "2025-02-14T14:23:16.778Z",
+      "notes": "good ",
+      "emoji": "https://flagcdn.com/w320/it.png",
+      "position": {
+        "lat": "41.83827210955729",
+        "lng": "12.579345703125002"
+      }
     }
-    
   ]
 }
