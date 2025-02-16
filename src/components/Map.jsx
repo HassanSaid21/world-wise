@@ -17,7 +17,7 @@ import { useUrlPosition } from "../../hooks/useUrl";
 
 function Map() {
   const { cities } = useCities();
-  const [lat, lng] = useUrlPosition()
+  const [lat, lng] = useUrlPosition();
   const {
     isLoading: isLoadingPosition,
     getPosition,
@@ -35,7 +35,6 @@ function Map() {
     function () {
       if (geolocationPosition?.lat && geolocationPosition?.lng)
         setPosition([geolocationPosition.lat, geolocationPosition.lng]);
-      
     },
     [geolocationPosition]
   );
@@ -60,8 +59,10 @@ function Map() {
         {cities.map((city) => (
           <Marker key={city.id} position={city.position}>
             <Popup>
-              {" "}
-              <div> {city.cityName}</div>
+              <div>
+                {" "}
+                {city.cityName} {cities.emoji}
+              </div>
               {city.notes}
             </Popup>
           </Marker>

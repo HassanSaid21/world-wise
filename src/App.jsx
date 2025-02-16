@@ -13,13 +13,16 @@ import City from "./components/City";
 import Form from "./components/Form";
 import { CitiesProvider } from "../contexts/CitiesContext";
 import HomePage from "./pages/Homepage";
+import { AuthProvider } from "../contexts/FakeAuthContext";
+
 
 function App() {
   return (
+    <AuthProvider>
     <CitiesProvider>
       <BrowserRouter
         future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
-      >
+        >
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="product" element={<Product />} />
@@ -37,7 +40,8 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
-    </CitiesProvider>
+    </CitiesProvider></AuthProvider>
+
   );
 }
 

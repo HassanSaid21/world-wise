@@ -37,16 +37,22 @@ function City() {
     notes: "My favorite city so far!",
   };
 */
-
-  const { cityName, emoji, date, notes , country} = currentCity;
+  console.log(currentCity, isLoading);
+  const { cityName, emoji, date, notes, country } = currentCity;
 
   return (
     <div className={styles.city}>
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-        <img className={styles.emoji} src={emoji} alt={country} width="035"
-                height="30"/>  {cityName}
+          <img
+            className={styles.emoji}
+            src={emoji}
+            alt={country}
+            width="035"
+            height="30"
+          />{" "}
+          {cityName}
         </h3>
       </div>
 

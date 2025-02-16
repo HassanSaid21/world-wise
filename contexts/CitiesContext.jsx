@@ -1,4 +1,3 @@
-
 import {
   createContext,
   useContext,
@@ -13,7 +12,7 @@ const CitiesContext = createContext();
 const initialState = {
   cities: [],
   isLoading: false,
-  currentCity: null,
+  currentCity:{},
   error: "",
 };
 function reducer(state, action) {
@@ -54,6 +53,7 @@ function CitiesProvider({ children }) {
     reducer,
     initialState
   );
+
   useEffect(
     function () {
       async function fetchCities() {
@@ -74,7 +74,7 @@ function CitiesProvider({ children }) {
   );
 
   async function getCity(id) {
-    if (Number(id) ===currentCity?.id) return ;
+    if (Number(id) ===currentCity.id) return ;
     dispatch({ type: "loading" });
     try {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
