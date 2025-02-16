@@ -3,6 +3,9 @@
   padding: 2.5rem 5rem;
   background-color: var(--color-dark--1);
   min-height: calc(100vh - 5rem);
+  display: flex;
+  flex-direction: column;
+
 }
 
 .form {
@@ -16,7 +19,7 @@
   
 
 
-  margin: 8rem auto;
+  margin: 4rem auto;
 }
 
 .row {
@@ -25,4 +28,13 @@
   gap: 0.5rem;
 
   
+}
+.error {
+  background-color: rgba(244, 81, 81, 0.896);
+  text-align: center;
+  width: 50rem;
+  align-self: center;
+  margin-top: 5rem;
+  padding: 1rem;
+  border-radius: 2px;
 }

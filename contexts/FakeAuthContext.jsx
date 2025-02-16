@@ -1,4 +1,5 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext,  useReducer } from "react";
+
 const FAKE_USER = {
   name: "Jack",
   email: "jack@example.com",
@@ -8,15 +9,17 @@ const FAKE_USER = {
 
 const initialState = {
   isAuthenticated: false,
-  user: null,
+  user: {},
 };
 function reducer(state, action) {
   switch (action.type) {
     case "loggedIn": {
       return { ...state, user: action.payload, isAuthenticated: true };
+    
     }
     case "logout": {
       return { ...state, isAuthenticated: false, user: null };
+
     }
 
     default:
@@ -33,7 +36,9 @@ function AuthProvider({ children }) {
 
   function login(email, pass) {
     if (email === FAKE_USER.email && pass === FAKE_USER.password)
-      dispatch({ type: "loggedIn", payload: FAKE_USER });
+      dispatch({ type: "loggedIn", payload: FAKE_USER }); 
+
+  
   }
 
   function logout() {

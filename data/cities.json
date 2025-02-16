@@ -26,87 +26,15 @@
       }
     },
     {
-      "id": "235d",
-      "cityName": "Castello de la Plana",
+      "id": "ac17",
+      "cityName": "Madrid",
       "countryName": "Spain",
-      "date": "2025-02-15T21:12:26.969Z",
-      "notes": "",
+      "date": "2025-02-16T14:52:59.674Z",
+      "notes": "cool",
       "emoji": "https://flagcdn.com/w320/es.png",
       "position": {
-        "lat": "39.99134106338969",
-        "lng": "-0.02367869160892378"
-      }
-    },
-    {
-      "id": "6584",
-      "cityName": "Castello de la Plana",
-      "countryName": "Spain",
-      "date": "2025-02-15T21:16:25.876Z",
-      "notes": "",
-      "emoji": "https://flagcdn.com/w320/es.png",
-      "position": {
-        "lat": "39.991998564519164",
-        "lng": "-0.011311138660348163"
-      }
-    },
-    {
-      "id": "c2ae",
-      "cityName": "Castello de la Plana",
-      "countryName": "Spain",
-      "date": "2025-02-15T21:17:25.749Z",
-      "notes": "",
-      "emoji": "https://flagcdn.com/w320/es.png",
-      "position": {
-        "lat": "39.997914705969656",
-        "lng": "0.008457567807895751"
-      }
-    },
-    {
-      "id": "2a48",
-      "cityName": "Al Ibrahimiyah",
-      "countryName": "Egypt",
-      "date": "2025-02-15T21:17:35.921Z",
-      "notes": "",
-      "emoji": "https://flagcdn.com/w320/eg.png",
-      "position": {
-        "lat": "30.704167835319012",
-        "lng": "31.583558767278323"
-      }
-    },
-    {
-      "id": "df4d",
-      "cityName": "Castello de la Plana",
-      "countryName": "Spain",
-      "date": "2025-02-15T21:21:15.806Z",
-      "notes": "",
-      "emoji": "https://flagcdn.com/w320/es.png",
-      "position": {
-        "lat": "39.989763444374894",
-        "lng": "-0.006669790185194203"
-      }
-    },
-    {
-      "id": "984d",
-      "cityName": "Castello de la Plana",
-      "countryName": "Spain",
-      "date": "2025-02-15T21:22:47.517Z",
-      "notes": "",
-      "emoji": "https://flagcdn.com/w320/es.png",
-      "position": {
-        "lat": "39.988054185502925",
-        "lng": "-0.001856539914661948"
-      }
-    },
-    {
-      "id": "c53a",
-      "cityName": "Castello de la Plana",
-      "countryName": "Spain",
-      "date": "2025-02-15T21:22:58.239Z",
-      "notes": "",
-      "emoji": "https://flagcdn.com/w320/es.png",
-      "position": {
-        "lat": "40.00632524184302",
-        "lng": "-0.026577220706442976"
+        "lat": "40.408270380166975",
+        "lng": "-3.6955261230468754"
       }
     }
   ]
