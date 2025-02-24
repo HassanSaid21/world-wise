@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
 import { useCities } from "../../contexts/CitiesContext";
 
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import Spinner from "./Spinner";
 import BackButton from "./BackButton";
 
@@ -17,14 +17,15 @@ const formatDate = (date) =>
 
 function City() {
   const { getCity, currentCity, isLoading } = useCities();
+  const onCity = useMemo(()=>getCity,[getCity])
   const { id } = useParams();
 
   useEffect(
     () =>
       function () {
-        getCity(id);
+        onCity(id);
       },
-    [id]
+    [id, onCity]
   );
 
   if (isLoading) return <Spinner />;
