@@ -15,7 +15,12 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "loggedIn": {
-      return { ...state, user: action.payload, isAuthenticated: true , wrong :null};
+      return {
+        ...state,
+        user: action.payload,
+        isAuthenticated: true,
+        wrong: null,
+      };
     }
     case "logout": {
       return { ...state, isAuthenticated: false, user: null };
@@ -36,19 +41,21 @@ function AuthProvider({ children }) {
     initialState
   );
 
-   function login(email, pass) {
-    if (!email || !pass){
+  function login(email, pass) {
+    if (!email || !pass) {
       dispatch({ type: "wrong", payload: "Please fill in both fields." });
-    return ;
+      return;
     }
     if (!/\S+@\S+\.\S+/.test(email)) {
-      dispatch({ type: "wrong", payload: "Please enter a valid email address." });
-      return ;
+      dispatch({
+        type: "wrong",
+        payload: "Please enter a valid email address.",
+      });
+      return;
     }
     if (email === FAKE_USER.email && pass === FAKE_USER.password)
       dispatch({ type: "loggedIn", payload: FAKE_USER });
-    else
-    dispatch({ type: "wrong", payload: "wrong credentials, try again" });
+    else dispatch({ type: "wrong", payload: "wrong credentials, try again" });
   }
 
   function logout() {

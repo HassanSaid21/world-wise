@@ -6,14 +6,13 @@ import User from "../components/User";
 import styles from "./AppLayout.module.css";
 
 function AppLayout() {
-  const {isAuthenticated} = useAuth()
+  const { isAuthenticated } = useAuth();
 
   return (
     <div className={styles.app}>
-      <Sidebar/>
+      <Sidebar />
       <Map />
-    {isAuthenticated&&  <User/>}
-  
+      {isAuthenticated && <User />}
     </div>
   );
 }
