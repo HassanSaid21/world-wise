@@ -14,12 +14,12 @@ export default function Login() {
   const { login, isAuthenticated, wrong } = useAuth();
   const navigate = useNavigate();
 
-  async function handleLogin(e) {
+   function handleLogin(e) {
     e.preventDefault();
 
     setIsLoading(true);
     try {
-      await login(email, password);
+       login(email, password);
     } catch (err) {
       setPassword(""); // Clear the password field
     } finally {

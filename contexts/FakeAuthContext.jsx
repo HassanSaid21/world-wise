@@ -15,7 +15,7 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "loggedIn": {
-      return { ...state, user: action.payload, isAuthenticated: true };
+      return { ...state, user: action.payload, isAuthenticated: true , wrong :null};
     }
     case "logout": {
       return { ...state, isAuthenticated: false, user: null };
@@ -36,7 +36,7 @@ function AuthProvider({ children }) {
     initialState
   );
 
-  async function login(email, pass) {
+   function login(email, pass) {
     if (!email || !pass){
       dispatch({ type: "wrong", payload: "Please fill in both fields." });
     return ;
